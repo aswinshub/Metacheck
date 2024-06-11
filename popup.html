@@ -3,42 +3,83 @@
 <head>
   <title>Meta Tag Comparator</title>
   <style>
-    body {
-      width: 300px;
-      font-family: Arial, sans-serif;
+
+    h1{
+
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #5d6461;
+    }
+     body {
+      width: 380px;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .container {
-      margin: 10px;
+      border: 1px solid rgb(6, 135, 255);
+      border-radius: 5px;
+      margin: 20px;
+      width: 340px;
+      height: auto;
+      padding: 20px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
     }
     input {
+      border-radius: 5px;
+      border: 1px solid #adb3ae;
       width: 100%;
       margin-bottom: 10px;
-      padding: 5px;
+      padding: 10px;
+      box-sizing: border-box;
     }
     button {
       width: 100%;
       padding: 10px;
-      background-color: #4CAF50;
+      background-color: #2ac97a;
+      border-radius: 3px;
       color: white;
       border: none;
       cursor: pointer;
+      margin-bottom: 10px;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #37ec91;
     }
-    #results {
+    table {
+      width: 100%;
+      border-collapse: collapse;
       margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 5px;
+      text-align: left;
+    }
+    .difference {
+      background-color: #ffdddd;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Meta Tag Comparator</h1>
+    <h1>Meta Check</h1>
     <input type="text" id="url1" placeholder="Enter first URL">
     <input type="text" id="url2" placeholder="Enter second URL">
     <button id="compare">Compare</button>
+    <button id="downloadExcel">Download as Excel</button>
     <div id="results"></div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>

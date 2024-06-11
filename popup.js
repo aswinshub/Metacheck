@@ -72,6 +72,9 @@ function displayComparison(comparison) {
   
   for (const [key, { url1, url2 }] of Object.entries(comparison)) {
     const row = document.createElement('tr');
+    if (url1 !== url2) {
+      row.classList.add('difference');
+    }
     row.innerHTML = `
       <td>${key}</td>
       <td>${url1 || 'N/A'}</td>
