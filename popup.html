@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meta Tag Comparator</title>
+  <style>
+    body {
+      width: 300px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      margin: 10px;
+    }
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #results {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Meta Tag Comparator</h1>
+    <input type="text" id="url1" placeholder="Enter first URL">
+    <input type="text" id="url2" placeholder="Enter second URL">
+    <button id="compare">Compare</button>
+    <div id="results"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
