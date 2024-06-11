@@ -21,14 +21,7 @@ document.getElementById('compare').addEventListener('click', async () => {
   }
 });
 
-document.getElementById('downloadExcel').addEventListener('click', () => {
-  const comparisonTable = document.querySelector('#results table');
-  if (comparisonTable) {
-    downloadExcel(comparisonTable);
-  } else {
-    alert('No comparison data available to download.');
-  }
-});
+
 
 async function fetchMetaTags(url) {
   const response = await fetch(url);
@@ -88,9 +81,4 @@ function displayComparison(comparison) {
   results.appendChild(table);
 }
 
-function downloadExcel(table) {
-  const ws = XLSX.utils.table_to_sheet(table);
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, 'Meta Tags Comparison');
-  XLSX.writeFile(wb, 'meta-tags-comparison.xlsx');
-}
+
