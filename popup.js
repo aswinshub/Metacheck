@@ -16,12 +16,12 @@ document.getElementById('compare').addEventListener('click', async () => {
 
     const comparison = compareMetaTags(metaTags1, metaTags2);
     displayComparison(comparison);
+
+    document.getElementById('download').style.display = 'block';
   } catch (error) {
     results.innerHTML = 'Error fetching meta tags. Please check the URLs and try again.';
   }
 });
-
-
 
 async function fetchMetaTags(url) {
   const response = await fetch(url);
@@ -81,4 +81,24 @@ function displayComparison(comparison) {
   results.appendChild(table);
 }
 
+document.getElementById('download').addEventListener('click', () => {
+  const table = document.querySelector('#results table');
+  if (!table) {
+    alert('No comparison data to download.');
+    return;
+  }
 
+  const ws_data = [['Meta Tag', 'URL 1', 'URL 2']];
+  const rows = table.querySelectorAll('tr');
+  rows.forEach(row => {
+    const cells = row.querySelectorAll('th, td');
+    const rowData = Array.from(cells).map(cell => cell.textContent);
+    ws_data.push(rowData);
+  });
+
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
+  XLSX.utils.book_append_sheet(wb, ws, 'Meta Tags Comparison');
+
+  XLSX.writeFile(wb, 'meta_tags_comparison.xlsx');
+});
